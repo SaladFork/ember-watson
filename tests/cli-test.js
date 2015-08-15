@@ -35,6 +35,10 @@ var commands = {
   'replace-needs-with-injection': {
     method: 'replaceNeedsWithInjection',
     path: 'app/controllers'
+  },
+  'convert-computed-decorators': {
+    method: 'transformComputedDecorators',
+    path: 'app'
   }
 };
 

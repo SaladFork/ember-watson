@@ -13,4 +13,6 @@ describe('convert-computed-decorators', function () {
     astEquality(newSource, fs.readFileSync('./tests/fixtures/computed-decorators/simple-cp/new.js'));
   });
 
+  // TODO: Test getters/setters too
+
 });

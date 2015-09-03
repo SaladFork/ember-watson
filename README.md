@@ -48,6 +48,33 @@ want to convert code somewhere different to `app/`.
 
 For more info about this please refer to the following PR [Encourage decorator-style Ember.computed/Ember.observer](https://github.com/emberjs/guides/pull/110)
 
+#### `ember watson:convert-computed-decorators`
+
+Converts computed properties to ES7 decorator format. This will be [the recommended format in Ember 2.x](http://emberjs.com/blog/2015/08/13/ember-2-0-released.html#toc_ember-2-x-themes) once the proposal stabilizes.
+
+You can start using decorators in your app today by installing the [ember-computed-decorators addon](https://github.com/rwjblue/ember-computed-decorators).
+
+```javascript
+// before:
+export default Ember.Object.extend({
+  aSimpleCP: Ember.computed(function() {
+    return true;
+  })
+});
+
+// after
+export default Ember.Object.extend({
+  @computed()
+  aSimpleCP() {
+    return true;
+  }
+});
+```
+
+Will convert:
+  - `Ember.computed` -> `@computed`
+  - `.readOnly()` -> `@readOnly`
+
 #### `ember watson:convert-ember-data-async-false-relationships`
 
 In Ember Data 2.0 relationships will be asynchronous by default. Sync relationships will still be supported but you will need to manually opt into them by setting { async: false } on your relationships. This task adds an explicit `async: false` options to all `belongsTo` and `hasMany` that
